@@ -1,0 +1,7 @@
+log/*.log
+tmp/cache/*
+tmp/pids/*  
+tmp/sessions/*
+tmp/sockets/*
+doc
+db/schema.rb

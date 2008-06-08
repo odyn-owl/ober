@@ -1,0 +1,19 @@
+<h1>Listing dishes</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for dish in @dishes %>
+  <tr>
+    
+    <td><%= link_to dish.name, dish %></td>
+    <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
+    <td><%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dish', new_dish_path %>

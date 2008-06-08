@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @customer.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @customer.phone %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%=h @customer.birthday %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

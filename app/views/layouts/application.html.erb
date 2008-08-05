@@ -1,15 +1,23 @@
-<html>
-<body>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<h1>Our first application</h1>
-<div>
-  <%= link_to "Home", root_path %>
-  <%= link_to "Customers", customers_path %>
-  <%= link_to "Dishes", dishes_path %>
-</div>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Ober</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <%= stylesheet_link_tag 'scaffold', 'application' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
 
+  <body>  
+    <h1>Our first application</h1>
+    <div>
+      <%= link_to "Home", root_path %>
+      <%= link_to "Customers", customers_path %>
+      <%= link_to "Dishes", dishes_path %>
+    </div>
 
-<%= yield  %>
+    <%= yield  %>
 
-</body>
+  </body>
 </html>

@@ -5,3 +5,4 @@ tmp/sessions/*
 tmp/sockets/*
 doc
 db/schema.rb
+config/database.yml

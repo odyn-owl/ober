@@ -2,12 +2,14 @@
 
 <table>
   <tr>
+    <td>name</td><td>group</td><td colspan="2">&nbsp;</td>
   </tr>
 
 <% for dish in @dishes %>
   <tr>
     
     <td><%= link_to dish.name, dish %></td>
+    <td><%= link_to dish.menu_group_id || '-', dish %></td>
     <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
     <td><%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

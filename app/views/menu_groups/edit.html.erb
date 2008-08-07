@@ -1,6 +1,6 @@
-<h1>Editing dish</h1>
+<h1>Editing menu group</h1>
 
-<% form_for(@dish) do |f| %>
+<% form_for(@menu_group) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -13,12 +13,10 @@
     <%= f.text_field :menu_group_id %>
   </p>
 
-
-
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @dish %> |
-<%= link_to 'Back', dishes_path %>
+<%= link_to 'Show', @menu_group %> |
+<%= link_to 'Back', menu_groups_path %>

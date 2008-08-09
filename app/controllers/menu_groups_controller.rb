@@ -1,5 +1,5 @@
 class MenuGroupsController < ApplicationController
-
+  
   def index
     @menu_groups = MenuGroup.find(:all)
   end
@@ -44,4 +44,5 @@ class MenuGroupsController < ApplicationController
     
     redirect_to(menu_groups_url)
   end
+  
 end

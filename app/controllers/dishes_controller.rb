@@ -1,8 +1,11 @@
 class DishesController < ApplicationController
+  
+  before_filter :menu_groups_collection , :except=> [:index, :show, :destroy, :create, :update]
+  
   # GET /dishes
   # GET /dishes.xml
   def index
-    @dishes = Dish.find(:all)
+    @dishes = Dish.find(:all, :order => "menu_group_id DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +17,8 @@ class DishesController < ApplicationController
   # GET /dishes/1.xml
   def show
     @dish = Dish.find(params[:id])
-
+    @menu_group = MenuGroup.find @dish.menu_group_id if @dish.menu_group_id
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @dish }
@@ -58,7 +62,7 @@ class DishesController < ApplicationController
   # PUT /dishes/1.xml
   def update
     @dish = Dish.find(params[:id])
-
+    
     respond_to do |format|
       if @dish.update_attributes(params[:dish])
         flash[:notice] = 'Dish was successfully updated.'
@@ -82,4 +86,11 @@ class DishesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def menu_groups_collection
+     @menu_groups ||= MenuGroup.find(:all).collect {|p|  [p.name, p.id]  }
+  end
+  
 end

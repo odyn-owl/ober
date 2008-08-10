@@ -2,12 +2,19 @@
 
 <% form_for(@dish) do |f| %>
   <%= f.error_messages %>
+  
   <p>
     name: <%=  f.text_field(:name) %>
   </p>
+  
   <p>
     price: <%=  f.text_field(:price) %>
   </p>
+
+  <p>
+    menu group: <%=  f.select( :menu_group_id, @menu_groups, { :include_blank => true }) %>
+  </p>
+  
   <p>
     <%= f.submit "Create" %>
   </p>

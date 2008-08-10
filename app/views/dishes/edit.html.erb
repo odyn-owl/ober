@@ -7,13 +7,16 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
-
+  
   <p>
-    <%= f.label :menu_group_id %><br />
-    <%= f.text_field :menu_group_id %>
+      <%= f.label :price %><br /> 
+      <%=  f.text_field(:price) %>
   </p>
 
-
+  <p>
+    <%= f.label :menu_group_id %><br />    
+    <%=  f.select( :menu_group_id, @menu_groups, { :include_blank => true }) %>
+  </p>
 
   <p>
     <%= f.submit "Update" %>
@@ -22,3 +25,25 @@
 
 <%= link_to 'Show', @dish %> |
 <%= link_to 'Back', dishes_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   
-  before_filter :menu_groups_collection , :except=> [:index, :show, :destroy, :create, :update]
+  before_filter :menu_groups_collection , :only => [:new, :edit, :create, :update]
   
   # GET /dishes
   # GET /dishes.xml
@@ -90,7 +90,7 @@ class DishesController < ApplicationController
   private
   
   def menu_groups_collection
-     @menu_groups ||= MenuGroup.find(:all).collect {|p|  [p.name, p.id]  }
+    @menu_groups ||= MenuGroup.find(:all).collect {|p|  [p.name, p.id]  }
   end
   
 end

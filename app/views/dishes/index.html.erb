@@ -1,37 +1,16 @@
 <h1>Listing dishes</h1>
 
 <table>
-  
-<% group=-1 %>
-<% for dish in @dishes %>
-  
-  <% if  group != dish.menu_group_id %>  
-    <%  group=dish.menu_group_id  %>    
-<tr>
-  <td colspan="3" bgcolor="gray">Menu group: </td>
-  <td bgcolor="gray">
-    <% if dish.menu_group_id %>
-      <% menu_group = MenuGroup.find(dish.menu_group_id) %>
-      <%= menu_group.name %>
-    <% else %>
-      -
-    <%  end %>
-   </td>
-</tr>
-<tr>
-   <td>name</td><td>price</td><td colspan="2">&nbsp;</td>
-</tr>
-  
-  <%  end %>
 
-<tr>    
-   <td><%= link_to dish.name, dish %></td>
-   <td align="right"><%= link_to dish.price %></td>
-   <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-   <td><%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
-</tr>
+  <% @dishes.each do |dish| -%>
+    <tr>    
+      <td><%= link_to dish.name, dish %></td>
+      <td align="right"><%= link_to dish.price %></td>
+      <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
+      <td><%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end -%>
 
-<% end %> 
 </table>
 
 <br />

@@ -1,6 +1,42 @@
 <h1> Menu </h1>
 
-<%  for dish in @dishes %>
-    <%=  dish.name %>
-<%  end %>
-<hr>
+  
+  
+ <table>
+  
+<% menu_item=-1 %>
+<% for dish in @dishes %>
+  
+ <% if  menu_item != dish.menu_item_id %>  
+    <%  menu_item=dish.menu_item_id  %>     
+<tr>
+  <td  bgcolor="gray" colspan="2">Menu group: 
+    <%= dish.menu_item_id ? MenuItem.find(dish.menu_item_id).name : '-'  %>    
+   </td>
+</tr>
+<tr>
+   <td>name</td><td>price</td>
+</tr>  
+  <%  end %>
+
+<tr>    
+   <td><%= dish.name %></td>
+   <td align="right"><%=  dish.price %></td>   
+</tr>
+<%if dish.description %>
+<tr>
+  <td colspan="2">description: <%=  dish.description %></td>
+</tr>
+<% end  %>
+<tr>
+  <td colspan="2"><hr></td>
+</tr>
+
+<% end %> 
+</table>
+
+<br />
+<hr/>
+<% for dish in @dishes_by_menu %>
+  <%= dish.name  %>
+<% end %> 

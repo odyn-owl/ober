@@ -1,6 +1,6 @@
 <p>Name: <%= @dish.name %> </p>
 <p>Price: <%= @dish.price %> </p>
-<p>MenuGroup: <%= @menu_group.name if @menu_group %></p>
+<p>MenuGroup: <%= @menu_item.name if @menu_item %></p>
 
 <%= link_to 'Edit', edit_dish_path(@dish) %> |
 <%= link_to 'Back', dishes_path %>

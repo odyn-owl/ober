@@ -2,20 +2,15 @@
 
 <table>
   
-<% group=-1 %>
+<%  menu_item= -1 %>
 <% for dish in @dishes %>
   
-  <% if  group != dish.menu_group_id %>  
-    <%  group=dish.menu_group_id  %>    
+  <% if  menu_item != dish.menu_item_id %>  
+    <%  menu_item=dish.menu_item_id  %>    
 <tr>
-  <td colspan="3" bgcolor="gray">Menu group: </td>
+  <td colspan="2" bgcolor="gray">Menu group: </td>
   <td bgcolor="gray">
-    <% if dish.menu_group_id %>
-      <% menu_group = MenuGroup.find(dish.menu_group_id) %>
-      <%= menu_group.name %>
-    <% else %>
-      -
-    <%  end %>
+    <%= dish.menu_item_id ? MenuItem.find(dish.menu_item_id).name : '-'  %>    
    </td>
 </tr>
 <tr>
@@ -27,8 +22,8 @@
 <tr>    
    <td><%= link_to dish.name, dish %></td>
    <td align="right"><%= link_to dish.price %></td>
-   <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-   <td><%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
+   <td><%= link_to 'Edit', edit_dish_path(dish) %>
+   <%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>
 
 <% end %> 

@@ -3,7 +3,7 @@
 
 <% for menu_item in @menu_items %>
 
-  <% if  !menu_item.dishes.empty? %>
+  <% unless menu_item.dishes.empty? %>
 <tr bgcolor="eeeeee">
   <td colspan="2"> Menu item: <%= menu_item.name %>  </td>
 </tr>

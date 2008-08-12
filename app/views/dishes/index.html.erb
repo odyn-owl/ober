@@ -1,15 +1,25 @@
 <h1>Listing dishes</h1>
 
 <table>
+  
+<tr>
+   <td>menu item</td>
+   <td>name</td>
+   <td>price</td>
+   <td colspan="2">&nbsp;</td>
+</tr>
+ 
+<% for dish in @dishes %>
+  
+<tr>
+   <td><%= dish.menu_item ? dish.menu_item.name : '-'  %></td>
+   <td align="right"><%= link_to dish.name, dish %></td>
+   <td align="right"><%= link_to dish.price, dish %></td>
+   <td><%= link_to 'Edit', edit_dish_path(dish) %>
+   <%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
 
-  <% @dishes.each do |dish| -%>
-    <tr>    
-      <td><%= link_to dish.name, dish %></td>
-      <td align="right"><%= link_to dish.price %></td>
-      <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-      <td><%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end -%>
+<% end %> 
 
 </table>
 

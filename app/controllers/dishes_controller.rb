@@ -1,11 +1,11 @@
 class DishesController < ApplicationController
   
-  before_filter :menu_groups_collection , :only => [:new, :edit, :create, :update]
+  before_filter :menu_items_collection ,:only => [:new, :edit] 
   
   # GET /dishes
   # GET /dishes.xml
   def index
-    @dishes = Dish.find(:all, :order => "menu_group_id DESC")
+    @dishes = Dish.find(:all, :order => "menu_item_id DESC", :include => "menu_item")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class DishesController < ApplicationController
   # GET /dishes/1.xml
   def show
     @dish = Dish.find(params[:id])
-    @menu_group = MenuGroup.find @dish.menu_group_id if @dish.menu_group_id
+    @menu_item = MenuItem.find @dish.menu_item_id if @dish.menu_item_id
     
     respond_to do |format|
       format.html # show.html.erb
@@ -89,8 +89,8 @@ class DishesController < ApplicationController
   
   private
   
-  def menu_groups_collection
-    @menu_groups ||= MenuGroup.find(:all).collect {|p|  [p.name, p.id]  }
+  def menu_items_collection
+     @menu_items ||= MenuItem.find(:all).collect {|p|  [p.name, p.id]  }
   end
   
 end

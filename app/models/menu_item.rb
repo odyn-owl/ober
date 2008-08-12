@@ -1,4 +1,4 @@
-class MenuGroup < ActiveRecord::Base
+class MenuItem < ActiveRecord::Base
   has_many  :dishes
   validates_presence_of :name, :message=>'blank name is not allowed '
 end

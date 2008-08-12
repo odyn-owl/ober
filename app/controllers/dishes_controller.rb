@@ -1,11 +1,11 @@
 class DishesController < ApplicationController
   
-  before_filter :menu_items_collection ,:only => [:new, :edit] # :except=> [:index, :show, :destroy, :create, :update]
+  before_filter :menu_items_collection ,:only => [:new, :edit] 
   
   # GET /dishes
   # GET /dishes.xml
   def index
-    @dishes = Dish.find(:all, :order => "menu_item_id DESC")
+    @dishes = Dish.find(:all, :order => "menu_item_id DESC", :include => "menu_item")
 
     respond_to do |format|
       format.html # index.html.erb

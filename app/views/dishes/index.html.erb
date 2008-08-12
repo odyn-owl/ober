@@ -2,31 +2,25 @@
 
 <table>
   
-<%  menu_item= -1 %>
+<tr>
+   <td>menu item</td>
+   <td>name</td>
+   <td>price</td>
+   <td colspan="2">&nbsp;</td>
+</tr>
+ 
 <% for dish in @dishes %>
   
-  <% if  menu_item != dish.menu_item_id %>  
-    <%  menu_item=dish.menu_item_id  %>    
 <tr>
-  <td colspan="2" bgcolor="gray">Menu group: </td>
-  <td bgcolor="gray">
-    <%= dish.menu_item_id ? MenuItem.find(dish.menu_item_id).name : '-'  %>    
-   </td>
-</tr>
-<tr>
-   <td>name</td><td>price</td><td colspan="2">&nbsp;</td>
-</tr>
-  
-  <%  end %>
-
-<tr>    
-   <td><%= link_to dish.name, dish %></td>
-   <td align="right"><%= link_to dish.price %></td>
+   <td><%= dish.menu_item ? dish.menu_item.name : '-'  %></td>
+   <td align="right"><%= link_to dish.name, dish %></td>
+   <td align="right"><%= link_to dish.price, dish %></td>
    <td><%= link_to 'Edit', edit_dish_path(dish) %>
    <%= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>
 
 <% end %> 
+
 </table>
 
 <br />

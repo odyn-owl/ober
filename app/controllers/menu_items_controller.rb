@@ -1,4 +1,5 @@
 class MenuItemsController < ApplicationController
+  before_filter :login_required
   
   def index
     @menu_items = MenuItem.find(:all)

@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   
-  before_filter :menu_items_collection ,:only => [:new, :edit] 
+  before_filter  :menu_items_collection ,:only => [:new, :edit] 
+  before_filter :login_required ,
   
   # GET /dishes
   # GET /dishes.xml

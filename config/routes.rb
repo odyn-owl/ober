@@ -4,17 +4,16 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+
   map.resources :users
 
   map.resource :session
 
    map.resources :dishes
   
-  map.resources :menu
+  map.resources :menus
   
   map.resources :menu_items
-
-  map.resource :menu
 
   # The priority is based upon order of creation: first created -> highest priority.
 

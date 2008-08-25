@@ -6,3 +6,4 @@ tmp/sockets/*
 doc
 db/schema.rb
 config/database.yml
+tags

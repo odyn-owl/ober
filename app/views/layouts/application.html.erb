@@ -8,10 +8,12 @@
 
   <body>  
     <h1>Our first application</h1>
+    <% if logged_in? -%>
+      <h2>Hello <%= current_user.email %></h2>
+    <% end -%>
     <div>
       <%= link_to "Home", root_path %>      
       <%= link_to "Menu", :controller=> :menu, :action=>:index %>      
-      <%= link_to "Customers", customers_path %>
       <%= link_to "Menu Items", menu_items_path %>
       <%= link_to "Dishes", dishes_path %>      
     </div>

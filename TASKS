@@ -1,9 +1,0 @@
-Task 1: Menu managment
-Description:
-Create one-deep level menu for grouping dishes. Each dish should belong only to one menu item. 
-Create menu page and make it default page in app. Menu page should be like a list with links to menu items.
-(e.g Fruits, Drinks, etc). Create menu item page that should display dishes like a table with dish name, description and price.
-Cover it with tests.
-
- 
-

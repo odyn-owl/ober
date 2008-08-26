@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
-  
-  def index    
+ 
+  def show
     @menu_items = MenuItem.find(:all,   :include => :dishes )
   end
   

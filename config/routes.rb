@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
    map.resources :dishes
   
-  map.resources :menus
+  map.resources :menus 
   
   map.resources :menu_items
 
@@ -47,8 +47,8 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "menus"
 
+  map.root  :controller => 'menus', :action => 'show' ,:id => 0
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
